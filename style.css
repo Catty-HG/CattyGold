@@ -196,33 +196,66 @@ body {
   --neon-b: #00a2ff; /* azul */
 }
 
-/* El marco se ajusta al contorno de .contenedor (la foto) */
 .marco-neon {
   position: absolute;
-  inset: 2px;
-  width: calc(100% - 4px);
-  height: calc(100% - 4px);
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  width: auto;
+  height: auto;
   overflow: visible;
-  pointer-events: none; /* no bloquea los clics */
+  pointer-events: none;
   z-index: 10;
 }
 
 .marco-neon rect {
   fill: none;
-  stroke-width: 4;
   stroke-linecap: round;
   stroke-linejoin: round;
   animation:
-    recorrer 8s linear infinite,        /* vuelta completa */
-    color-neon 8s ease-in-out infinite; /* cambio de color */
+    recorrer 4s linear infinite,
+    color-neon 4s ease-in-out infinite;
 }
 
-/* t1 = cabeza brillante, t2..t5 = estela cada vez más larga y tenue */
-.marco-neon .t1 { stroke-dasharray: 2 98;  --ini: 2;  --fin: -98; opacity: 1;   animation-delay: 0s, 0s; }
-.marco-neon .t2 { stroke-dasharray: 6 94;  --ini: 6;  --fin: -94; opacity: .8;  animation-delay: 0s, -7.4s; }
-.marco-neon .t3 { stroke-dasharray: 11 89; --ini: 11; --fin: -89; opacity: .55; animation-delay: 0s, -6.8s; }
-.marco-neon .t4 { stroke-dasharray: 17 83; --ini: 17; --fin: -83; opacity: .35; animation-delay: 0s, -6.2s; }
-.marco-neon .t5 { stroke-dasharray: 24 76; --ini: 24; --fin: -76; opacity: .18; animation-delay: 0s, -5.6s; }
+/* CABEZA: corta + gruesa = se ve redonda, como el núcleo del cometa */
+.marco-neon .t1 {
+  stroke-width: 10;
+  stroke-dasharray: 1 99;
+  --ini: 1; --fin: -99;
+  opacity: 1;
+}
+
+/* ESTELA: cada segmento más largo, más fino y más tenue,
+   con un pequeño delay POSITIVO para quedar DETRÁS de la cabeza */
+.marco-neon .t2 {
+  stroke-width: 7;
+  stroke-dasharray: 4 96;
+  --ini: 4; --fin: -96;
+  opacity: .55;
+  animation-delay: 0.05s, 0.05s;
+}
+.marco-neon .t3 {
+  stroke-width: 5;
+  stroke-dasharray: 7 93;
+  --ini: 7; --fin: -93;
+  opacity: .35;
+  animation-delay: 0.10s, 0.10s;
+}
+.marco-neon .t4 {
+  stroke-width: 3;
+  stroke-dasharray: 10 90;
+  --ini: 10; --fin: -90;
+  opacity: .2;
+  animation-delay: 0.15s, 0.15s;
+}
+.marco-neon .t5 {
+  stroke-width: 2;
+  stroke-dasharray: 13 87;
+  --ini: 13; --fin: -87;
+  opacity: .1;
+  animation-delay: 0.2s, 0.2s;
+}
 
 @keyframes recorrer {
   from { stroke-dashoffset: var(--ini); }
@@ -234,7 +267,15 @@ body {
   50%      { stroke: var(--neon-b); }
 }
 
-/* En móvil el marco se queda fijo en los bordes de la pantalla */
+/* En móvil: se pega a los bordes de LA PANTALLA (viewport), no de la página completa */
 @media (max-width: 767px) {
-  .marco-neon { position: fixed; }
+  .marco-neon {
+    position: fixed;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    width: auto;
+    height: auto;
+  }
 }
