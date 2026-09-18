@@ -212,8 +212,8 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
   animation:
-    recorrer 2s linear infinite,
-    color-neon 2s ease-in-out infinite;
+    recorrer 4s linear infinite,
+    color-neon 4s ease-in-out infinite;
 }
 
 .marco-neon .t1 {
