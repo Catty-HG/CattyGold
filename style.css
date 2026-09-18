@@ -72,11 +72,11 @@ body {
   margin-bottom: 30px;
 }
 
-.foto-perfil {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  object-fit: cover;
+.perfil h1 {
+  margin-top: 15px;
+  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
 }
 
 .perfil h1 {
