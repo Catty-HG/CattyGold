@@ -163,6 +163,15 @@ body {
   transform: translateY(-2px);
 }
 
+.tarjeta.onlyfans {
+  background: rgba(147, 51, 234, 0.15);
+  border: 1px solid rgba(147, 51, 234, 0.25);
+}
+
+.tarjeta.onlyfans:hover {
+  background: rgba(147, 51, 234, 0.22);
+}
+
 .tarjeta.destacada {
   padding: 0;
   overflow: hidden;
