@@ -252,15 +252,29 @@ body {
   stroke-width: 1.5;
   stroke-dasharray: 32 68;
   --ini: 32; --fin: -68;
-  opacity: .05;
+  opacity: .07;
   animation-delay: 0.167s, 0.167s;
 }
 .marco-neon .t7 {
   stroke-width: 1;
   stroke-dasharray: 38 62;
   --ini: 38; --fin: -62;
-  opacity: .025;
+  opacity: .05;
   animation-delay: 0.2s, 0.2s;
+}
+.marco-neon .t8 {
+  stroke-width: 0.75;
+  stroke-dasharray: 44 56;
+  --ini: 44; --fin: -56;
+  opacity: .035;
+  animation-delay: 0.233s, 0.233s;
+}
+.marco-neon .t9 {
+  stroke-width: 0.5;
+  stroke-dasharray: 50 50;
+  --ini: 50; --fin: -50;
+  opacity: .025;
+  animation-delay: 0.267s, 0.267s;
 }
 
 @keyframes recorrer {
