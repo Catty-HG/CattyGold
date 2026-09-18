@@ -299,9 +299,10 @@ body {
 }
 
 .redes img {
-  animation: glitch-icono 5s infinite;
+  animation: test-rotar 2s linear infinite;
 }
 
-.redes a:nth-child(1) img { animation-delay: 0s; }
-.redes a:nth-child(2) img { animation-delay: 0.15s; }
-.redes a:nth-child(3) img { animation-delay: 0.3s; }
+@keyframes test-rotar {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
