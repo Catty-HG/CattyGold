@@ -132,12 +132,36 @@ body {
   }
 }
 
+.boton-of {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  padding: 16px 20px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #c97b8c, #d9b26b);
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: 0.25s;
+}
+
+.boton-of:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
 .enlaces {
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  margin-top: 15px;
 }
 
 .tarjeta {
@@ -163,17 +187,6 @@ body {
   transform: translateY(-2px);
 }
 
-.tarjeta.onlyfans {
-  background: #886CE4;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border: 1px solid rgba(147, 51, 234, 0.5);
-}
-
-.tarjeta.onlyfans:hover {
-  background: #a855f7;
-}
-
 .tarjeta.destacada {
   padding: 0;
   overflow: hidden;
@@ -183,10 +196,6 @@ body {
 .tarjeta.destacada img {
   width: 100%;
   display: block;
-}
-
-.tarjeta.glitch {
-  position: relative;
 }
 
 :root {
@@ -252,28 +261,28 @@ body {
   stroke-width: 1.5;
   stroke-dasharray: 32 68;
   --ini: 32; --fin: -68;
-  opacity: .07;
+  opacity: .08;
   animation-delay: 0.167s, 0.167s;
 }
 .marco-neon .t7 {
   stroke-width: 1;
   stroke-dasharray: 38 62;
   --ini: 38; --fin: -62;
-  opacity: .05;
+  opacity: .064;
   animation-delay: 0.2s, 0.2s;
 }
 .marco-neon .t8 {
   stroke-width: 0.75;
   stroke-dasharray: 44 56;
   --ini: 44; --fin: -56;
-  opacity: .035;
+  opacity: .051;
   animation-delay: 0.233s, 0.233s;
 }
 .marco-neon .t9 {
   stroke-width: 0.5;
   stroke-dasharray: 50 50;
   --ini: 50; --fin: -50;
-  opacity: .025;
+  opacity: .041;
   animation-delay: 0.267s, 0.267s;
 }
 
