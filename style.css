@@ -60,8 +60,11 @@ body {
 
 @media (min-width: 768px) {
   .contenedor {
-    background-size: contain;
-    background-position: center top;
+    max-width: 480px;          /* ancho tipo móvil */
+    margin: 0 auto;            /* centrada en la pantalla */
+    background-size: cover;    /* en vez de contain: recorta como en móvil */
+    background-position: 65% top;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5); /* opcional: separa la columna del fondo */
   }
 }
 
