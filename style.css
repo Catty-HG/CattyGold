@@ -248,6 +248,20 @@ body {
   opacity: .1;
   animation-delay: 0.133s, 0.133s;
 }
+.marco-neon .t6 {
+  stroke-width: 1.5;
+  stroke-dasharray: 32 68;
+  --ini: 32; --fin: -68;
+  opacity: .05;
+  animation-delay: 0.167s, 0.167s;
+}
+.marco-neon .t7 {
+  stroke-width: 1;
+  stroke-dasharray: 38 62;
+  --ini: 38; --fin: -62;
+  opacity: .025;
+  animation-delay: 0.2s, 0.2s;
+}
 
 @keyframes recorrer {
   from { stroke-dashoffset: var(--ini); }
