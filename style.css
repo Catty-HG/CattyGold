@@ -227,28 +227,28 @@ body {
   stroke-dasharray: 8 92;
   --ini: 8; --fin: -92;
   opacity: .55;
-  animation-delay: 0.025s, 0.025s;
+  animation-delay: 0.05s, 0.05s;
 }
 .marco-neon .t3 {
   stroke-width: 5;
   stroke-dasharray: 14 86;
   --ini: 14; --fin: -86;
   opacity: .35;
-  animation-delay: 0.05s, 0.05s;
+  animation-delay: 0.1s, 0.1s;
 }
 .marco-neon .t4 {
   stroke-width: 3;
   stroke-dasharray: 20 80;
   --ini: 20; --fin: -80;
   opacity: .2;
-  animation-delay: 0.075s, 0.075s;
+  animation-delay: 0.15s, 0.15s;
 }
 .marco-neon .t5 {
   stroke-width: 2;
   stroke-dasharray: 26 74;
   --ini: 26; --fin: -74;
   opacity: .1;
-  animation-delay: 0.1s, 0.1s;
+  animation-delay: 0.2s, 0.2s;
 }
 
 @keyframes recorrer {
