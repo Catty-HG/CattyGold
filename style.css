@@ -139,6 +139,7 @@ body {
 .tarjeta.destacada {
   padding: 0;
   overflow: hidden;
+  border-radius: 24px;
 }
 
 .tarjeta.destacada img {
