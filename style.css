@@ -192,18 +192,16 @@ body {
 }
 
 :root {
-  --neon-a: #ff00ea; /* magenta */
-  --neon-b: #00a2ff; /* azul */
+  --neon-a: #ff00ea;
+  --neon-b: #00a2ff;
 }
 
 .marco-neon {
   position: absolute;
   top: 2px;
   left: 2px;
-  right: 2px;
-  bottom: 2px;
-  width: auto;
-  height: auto;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
   overflow: visible;
   pointer-events: none;
   z-index: 10;
@@ -218,16 +216,12 @@ body {
     color-neon 4s ease-in-out infinite;
 }
 
-/* CABEZA: corta + gruesa = se ve redonda, como el núcleo del cometa */
 .marco-neon .t1 {
   stroke-width: 10;
   stroke-dasharray: 1 99;
   --ini: 1; --fin: -99;
   opacity: 1;
 }
-
-/* ESTELA: cada segmento más largo, más fino y más tenue,
-   con un pequeño delay POSITIVO para quedar DETRÁS de la cabeza */
 .marco-neon .t2 {
   stroke-width: 7;
   stroke-dasharray: 4 96;
@@ -267,15 +261,13 @@ body {
   50%      { stroke: var(--neon-b); }
 }
 
-/* En móvil: se pega a los bordes de LA PANTALLA (viewport), no de la página completa */
+/* Móvil: se pega a los bordes de LA PANTALLA (viewport) */
 @media (max-width: 767px) {
   .marco-neon {
     position: fixed;
     top: 2px;
     left: 2px;
-    right: 2px;
-    bottom: 2px;
-    width: auto;
-    height: auto;
+    width: calc(100vw - 4px);
+    height: calc(100vh - 4px);
   }
 }
