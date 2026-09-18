@@ -277,23 +277,23 @@ body {
 
 @keyframes glitch-icono {
   0%, 85%, 100% {
-    transform: translate(0, 0);
+    transform: translate(0, 0) scale(1);
     filter: none;
   }
   86% {
-    transform: translate(-3px, 1px);
-    filter: drop-shadow(2px 0 #ff00ea);
+    transform: translate(-6px, 2px) scale(1.15);
+    filter: drop-shadow(3px 0 #ff00ea);
   }
   88% {
-    transform: translate(3px, -1px);
-    filter: drop-shadow(-2px 0 #00fff2);
+    transform: translate(6px, -2px) scale(1.15);
+    filter: drop-shadow(-3px 0 #00fff2);
   }
   90% {
-    transform: translate(-2px, 0);
-    filter: drop-shadow(2px 0 #ff00ea);
+    transform: translate(-4px, 0) scale(1.1);
+    filter: drop-shadow(3px 0 #ff00ea);
   }
   92% {
-    transform: translate(2px, 1px);
+    transform: translate(4px, 2px) scale(1);
     filter: none;
   }
 }
