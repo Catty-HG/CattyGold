@@ -212,43 +212,43 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
   animation:
-    recorrer 4s linear infinite,
-    color-neon 4s ease-in-out infinite;
+    recorrer 2s linear infinite,
+    color-neon 2s ease-in-out infinite;
 }
 
 .marco-neon .t1 {
   stroke-width: 10;
-  stroke-dasharray: 1 99;
-  --ini: 1; --fin: -99;
+  stroke-dasharray: 2 98;
+  --ini: 2; --fin: -98;
   opacity: 1;
 }
 .marco-neon .t2 {
   stroke-width: 7;
-  stroke-dasharray: 4 96;
-  --ini: 4; --fin: -96;
+  stroke-dasharray: 8 92;
+  --ini: 8; --fin: -92;
   opacity: .55;
-  animation-delay: 0.05s, 0.05s;
+  animation-delay: 0.025s, 0.025s;
 }
 .marco-neon .t3 {
   stroke-width: 5;
-  stroke-dasharray: 7 93;
-  --ini: 7; --fin: -93;
+  stroke-dasharray: 14 86;
+  --ini: 14; --fin: -86;
   opacity: .35;
-  animation-delay: 0.10s, 0.10s;
+  animation-delay: 0.05s, 0.05s;
 }
 .marco-neon .t4 {
   stroke-width: 3;
-  stroke-dasharray: 10 90;
-  --ini: 10; --fin: -90;
+  stroke-dasharray: 20 80;
+  --ini: 20; --fin: -80;
   opacity: .2;
-  animation-delay: 0.15s, 0.15s;
+  animation-delay: 0.075s, 0.075s;
 }
 .marco-neon .t5 {
   stroke-width: 2;
-  stroke-dasharray: 13 87;
-  --ini: 13; --fin: -87;
+  stroke-dasharray: 26 74;
+  --ini: 26; --fin: -74;
   opacity: .1;
-  animation-delay: 0.2s, 0.2s;
+  animation-delay: 0.1s, 0.1s;
 }
 
 @keyframes recorrer {
