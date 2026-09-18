@@ -102,7 +102,7 @@ body {
 .redes img {
   width: 30px;
   height: 30px;
-  animation: glitch-icono 5s steps(1, end) infinite;
+  animation: glitch-icono 5s infinite;
 }
 
 .redes a:nth-child(1) img { animation-delay: 0s; }
@@ -110,21 +110,25 @@ body {
 .redes a:nth-child(3) img { animation-delay: 0.3s; }
 
 @keyframes glitch-icono {
-  0%, 88%, 91%, 100% {
+  0%, 85%, 100% {
     transform: translate(0, 0) scale(1);
     filter: none;
   }
-  88.5% {
+  86% {
     transform: translate(-6px, 2px) scale(1.15);
     filter: drop-shadow(3px 0 #ff00ea);
   }
-  89.5% {
+  88% {
     transform: translate(6px, -2px) scale(1.15);
     filter: drop-shadow(-3px 0 #00fff2);
   }
-  90.5% {
+  90% {
     transform: translate(-4px, 0) scale(1.1);
     filter: drop-shadow(3px 0 #ff00ea);
+  }
+  92% {
+    transform: translate(4px, 2px) scale(1);
+    filter: none;
   }
 }
 
