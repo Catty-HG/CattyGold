@@ -146,7 +146,16 @@ body {
 /* Animación de glitch para la tarjeta de Twitter */
 .tarjeta.glitch {
   position: relative;
-  animation: glitch-anim 6s infinite;
+  animation: glitch-anim 5s infinite;
+}
+
+/* Al pasar el mouse: pausa el glitch y activa el hover normal */
+.tarjeta.glitch:hover {
+  animation-play-state: paused;
+  transform: translate(0, 0); /* resetea cualquier desplazamiento del glitch */
+  text-shadow: none;
+  filter: none;
+  background: rgba(255, 255, 255, 0.35);
 }
 
 @keyframes glitch-anim {
