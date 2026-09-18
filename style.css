@@ -87,7 +87,7 @@ body {
 }
 
 .bio {
-  margin-top: 8px;
+  margin-top: 15px;
   font-size: 14px;
   color: #ccc;
 }
@@ -124,7 +124,7 @@ body {
   }
   90% {
     transform: translate(-4px, 0) scale(1.1);
-    filter: drop-shadow(3px 0 #ff00ea);
+    filter: drop-shadow(3px 0 #00fff2);
   }
   92% {
     transform: translate(4px, 2px) scale(1);
@@ -187,6 +187,14 @@ body {
 
 .tarjeta.glitch {
   position: relative;
+}
+
+.separador {
+  width: 100%;
+  max-width: 320px;
+  height: 1px;
+  margin: 5px auto;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
 }
 
 :root {
