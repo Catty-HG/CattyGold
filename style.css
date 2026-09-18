@@ -149,10 +149,10 @@ body {
   animation: glitch-anim 5s infinite;
 }
 
-/* Al pasar el mouse: pausa el glitch y activa el hover normal */
+/* Al pasar el mouse: quita el glitch y activa el hover normal */
 .tarjeta.glitch:hover {
-  animation-play-state: paused;
-  transform: translate(-2px); /* resetea cualquier desplazamiento del glitch */
+  animation: none;
+  transform: translateY(-2px);
   text-shadow: none;
   filter: none;
   background: rgba(255, 255, 255, 0.18);
