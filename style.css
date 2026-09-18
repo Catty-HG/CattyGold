@@ -273,7 +273,6 @@ body {
     height: calc(100dvh - 4px);  /* altura real visible en móvil */
   }
 }
-}
 
 @keyframes glitch-icono {
   0%, 85%, 100% {
