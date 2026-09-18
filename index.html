@@ -16,6 +16,27 @@
 
   <div class="contenedor">
 
+<svg class="marco-neon" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="brillo-neon" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="b1"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b2"/>
+      <feMerge>
+        <feMergeNode in="b2"/>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#brillo-neon)">
+    <rect class="t5" width="100%" height="100%" rx="0" pathLength="100"/>
+    <rect class="t4" width="100%" height="100%" rx="0" pathLength="100"/>
+    <rect class="t3" width="100%" height="100%" rx="0" pathLength="100"/>
+    <rect class="t2" width="100%" height="100%" rx="0" pathLength="100"/>
+    <rect class="t1" width="100%" height="100%" rx="0" pathLength="100"/>
+  </g>
+</svg>
+    
     <div class="perfil">
       <img src="img/profile.png" alt="Foto de perfil" class="foto-perfil">
       <h1>Catty Gold</h1>
