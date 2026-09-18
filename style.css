@@ -218,35 +218,35 @@ body {
 
 .marco-neon .t1 {
   stroke-width: 10;
-  stroke-dasharray: 20 80;
-  --ini: 20; --fin: -80;
+  stroke-dasharray: 1 99;
+  --ini: 1; --fin: -99;
   opacity: 1;
 }
 .marco-neon .t2 {
   stroke-width: 7;
-  stroke-dasharray: 23 77;
-  --ini: 23; --fin: -77;
+  stroke-dasharray: 4 96;
+  --ini: 4; --fin: -96;
   opacity: .55;
   animation-delay: 0.05s, 0.05s;
 }
 .marco-neon .t3 {
   stroke-width: 5;
-  stroke-dasharray: 26 74;
-  --ini: 26; --fin: -74;
+  stroke-dasharray: 7 93;
+  --ini: 7; --fin: -93;
   opacity: .35;
   animation-delay: 0.10s, 0.10s;
 }
 .marco-neon .t4 {
   stroke-width: 3;
-  stroke-dasharray: 29 71;
-  --ini: 29; --fin: -71;
+  stroke-dasharray: 10 90;
+  --ini: 10; --fin: -90;
   opacity: .2;
   animation-delay: 0.15s, 0.15s;
 }
 .marco-neon .t5 {
   stroke-width: 2;
-  stroke-dasharray: 32 68;
-  --ini: 32; --fin: -68;
+  stroke-dasharray: 13 87;
+  --ini: 13; --fin: -87;
   opacity: .1;
   animation-delay: 0.2s, 0.2s;
 }
