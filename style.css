@@ -189,14 +189,41 @@ body {
   position: relative;
 }
 
-.separador {
-  width: 100%;
-  max-width: 320px;
-  height: 1px;
-  margin: 5px auto;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+/* Título de sección */
+.titulo-seccion {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: -4px; /* acerca el título a las tarjetas de abajo */
 }
 
+/* Tarjetas una al lado de la otra */
+.fila-tarjetas {
+  display: flex;
+  gap: 15px;
+}
+
+.fila-tarjetas .tarjeta {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 10px;
+  gap: 8px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+/* Espacio para el png de cada plataforma */
+.icono-tarjeta {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Marco neón animado */
 :root {
   --neon-a: #ff00ea;
   --neon-b: #00a2ff;
