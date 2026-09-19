@@ -1,6 +1,9 @@
 :root {
   --magenta: #ff00ea;
   --azul: #00a2ff;
+  --entrada-inicio: 0.3s;
+  --entrada-duracion: 1.3s;
+  --entrada-paso: 0.12s;
 }
 
 * {
@@ -115,6 +118,13 @@ body {
   gap: 15px;
   justify-content: center;
   margin-top: 15px;
+}
+
+.redes a {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease,
+    filter 0.45s ease;
 }
 
 .redes img {
@@ -264,7 +274,7 @@ body {
   overflow: visible;
   pointer-events: none;
   z-index: 10;
-  animation: aparecer-marco 1.2s ease-out backwards;
+  animation: aparecer-marco 2s ease-out backwards;
 }
 
 .marco-neon-b {
@@ -314,8 +324,8 @@ body {
 .tarjeta,
 .separador,
 .titulo-seccion {
-  animation: aparecer 0.8s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-  animation-delay: calc(var(--i, 0) * 0.08s);
+  animation: aparecer var(--entrada-duracion) cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  animation-delay: calc(var(--entrada-inicio) + var(--i, 0) * var(--entrada-paso));
 }
 
 .foto-contenedor          { --i: 0; }
@@ -331,7 +341,7 @@ body {
 .fila-tarjetas .tarjeta   { --i: 10; }
 
 @keyframes aparecer {
-  from { opacity: 0; transform: translateY(22px); }
+  from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
@@ -349,5 +359,16 @@ body {
     width: calc(100vw - 4px);
     height: calc(100vh - 4px);
     height: calc(100dvh - 4px);
+  }
+}
+
+@media (hover: hover) {
+  .redes:hover a:not(:hover) {
+    opacity: 0.55;
+  }
+
+  .redes a:hover {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
   }
 }
