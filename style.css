@@ -56,20 +56,22 @@ body {
   gap: 28px;
 }
 
-/* Estrellas decorativas junto a la foto de perfil (antes eran puntos/círculos) */
+/* Estrellas decorativas a los lados de la foto (antes eran círculos) */
 .estrella {
   flex-shrink: 0;
-  line-height: 1;
   color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  line-height: 1;
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 10px rgba(255, 255, 255, 0.6);
 }
 
 .estrella-grande {
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .estrella-chica {
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .foto-perfil {
