@@ -83,17 +83,17 @@ body {
   flex-shrink: 0;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 08px rgba(255, 255, 255, 0.8);
 }
 
 .punto-grande {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 .punto-chico {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 .foto-perfil {
