@@ -241,15 +241,13 @@ body {
 .fila-imagenes .tarjeta {
   flex: 1;
   min-width: 0;
-  aspect-ratio: 1 / 1;   /* cuadradas */
-  padding: 0;
-  border-radius: 16px;   /* esquinas suaves, ya no es píldora */
+  padding: 14px 10px;
 }
 
 .icono-centro {
-  width: 40px;           /* más grande porque la tarjeta ahora es un cuadrado */
-  height: 40px;
-  object-fit: contain;
+  width: 28px;
+  height: 28px;
+  object-fit: contain; /* reduce el png sin deformarlo */
   display: block;
 }
 
