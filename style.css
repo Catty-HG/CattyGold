@@ -197,13 +197,22 @@ body {
   text-decoration: none;
   color: white;
   font-weight: 500;
-  transition: 0.25s;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.tarjeta:hover {
-  background: rgba(255, 255, 255, 0.18);
-  transform: translateY(-2px);
+/* Hover genérico: escala + resplandor blanco (mismo espíritu que los íconos) */
+@media (hover: hover) {
+  .tarjeta:hover {
+    transform: scale(1.035) translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow:
+      0 0 18px rgba(255, 255, 255, 0.35),
+      0 6px 16px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .tarjeta.onlyfans {
@@ -213,8 +222,15 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.tarjeta.onlyfans:hover {
-  filter: brightness(1.1);
+/* Hover de OnlyFans: mismo movimiento, pero con brillo en tono dorado/rosado */
+@media (hover: hover) {
+  .tarjeta.onlyfans:hover {
+    transform: scale(1.035) translateY(-3px);
+    background: linear-gradient(90deg, #d98da0, #e6c07c);
+    box-shadow:
+      0 0 20px rgba(217, 178, 107, 0.55),
+      0 6px 16px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .tarjeta.destacada {
@@ -226,6 +242,20 @@ body {
 .tarjeta.destacada img {
   width: 100%;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover de la tarjeta destacada: la imagen hace zoom suave, contenida por el overflow:hidden */
+@media (hover: hover) {
+  .tarjeta.destacada:hover {
+    box-shadow:
+      0 0 20px rgba(255, 255, 255, 0.3),
+      0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .tarjeta.destacada:hover img {
+    transform: scale(1.06);
+  }
 }
 
 .fila-imagenes,
