@@ -232,34 +232,23 @@ body {
   position: relative;
 }
 
-/* Fila de tres imágenes-enlace */
+/* Fila de tres tarjetas de cristal con icono centrado */
 .fila-imagenes {
   display: flex;
   gap: 15px;
 }
 
-.enlace-imagen {
-  display: block;
+.fila-imagenes .tarjeta {
   flex: 1;
   min-width: 0;
-  aspect-ratio: 1 / 1;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.225);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: 0.25s;
+  padding: 14px 10px;
 }
 
-.enlace-imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.icono-centro {
+  width: 28px;
+  height: 28px;
+  object-fit: contain; /* reduce el png sin deformarlo */
   display: block;
-}
-
-.enlace-imagen:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
 }
 
 /* Título de sección */
