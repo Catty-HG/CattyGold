@@ -71,6 +71,24 @@ body {
   margin-bottom: 30px;
 }
 
+/* Foto de perfil con puntitos a los lados */
+.foto-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.foto-contenedor::before,
+.foto-contenedor::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
 .foto-perfil {
   width: 100px;
   height: 100px;
@@ -86,10 +104,27 @@ body {
   font-weight: 600;
 }
 
+/* Separador bajo el nombre */
+.linea-nombre {
+  width: 100%;
+  height: 1px;
+  margin-top: 14px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85) 20%,
+    rgba(255, 255, 255, 0.85) 80%,
+    transparent
+  );
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.35);
+}
+
+/* Bio en dos líneas: el tamaño se adapta al ancho de la pantalla */
 .bio {
   margin-top: 15px;
-  font-size: 14px;
+  font-size: clamp(11px, 3.1vw, 13px);
   color: #ccc;
+  text-wrap: balance;
 }
 
 .redes {
@@ -108,6 +143,7 @@ body {
 .redes a:nth-child(1) img { animation-delay: 0s; }
 .redes a:nth-child(2) img { animation-delay: 0.15s; }
 .redes a:nth-child(3) img { animation-delay: 0.3s; }
+.redes a:nth-child(4) img { animation-delay: 0.45s; }
 
 @keyframes glitch-icono {
   0%, 85%, 100% {
@@ -198,7 +234,7 @@ body {
   text-transform: uppercase;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: -4px; /* acerca el título a las tarjetas de abajo */
+  margin-bottom: -4px;
 }
 
 /* Tarjetas una al lado de la otra */
@@ -216,7 +252,6 @@ body {
   white-space: nowrap;
 }
 
-/* Espacio para el png de cada plataforma */
 .icono-tarjeta {
   width: 24px;
   height: 24px;
