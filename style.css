@@ -76,24 +76,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
+  gap: 28px;
 }
 
 .punto {
   flex-shrink: 0;
   border-radius: 50%;
   background: #ffffff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.8);
 }
 
 .punto-grande {
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
 }
 
 .punto-chico {
-  width: 6px;
-  height: 6px;
+  width: 12px;
+  height: 12px;
 }
 
 .foto-perfil {
