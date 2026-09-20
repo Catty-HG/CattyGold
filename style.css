@@ -26,7 +26,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url('img/fondo.jpg') center / cover no-repeat;
+  background: url('img/fondo.png') center / cover no-repeat;
   filter: blur(3px) brightness(0.6);
   transform: scale(1.1);
 }
@@ -50,7 +50,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Banner superior: se estira a los bordes de la tarjeta y pasa detrás de la foto */
 .banner-wrap {
   margin: -40px -20px 0 -20px;
   width: calc(100% + 40px);
@@ -204,7 +203,6 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Hover genérico: escala + resplandor blanco (mismo espíritu que los íconos) */
 @media (hover: hover) {
   .tarjeta:hover {
     transform: scale(1.035) translateY(-3px);
@@ -222,7 +220,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Hover de OnlyFans: mismo movimiento, pero con brillo en tono dorado/rosado */
 @media (hover: hover) {
   .tarjeta.onlyfans:hover {
     transform: scale(1.035) translateY(-3px);
@@ -245,7 +242,6 @@ body {
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Hover de la tarjeta destacada: la imagen hace zoom suave, contenida por el overflow:hidden */
 @media (hover: hover) {
   .tarjeta.destacada:hover {
     box-shadow:
