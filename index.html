@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catty Gold</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style-landing.css">
+</head>
+<body>
 
+  <div class="fondo-landing"></div>
+
+  <div class="landing-contenedor">
+    <img src="img/profile.png" alt="Catty Gold" class="landing-foto">
+    <h1>Catty Gold</h1>
+    <p class="landing-texto">Contenido para adultos (+18). Al continuar confirmas que cumples la edad legal en tu país.</p>
+
+    <button id="btn-entrar" class="landing-boton">Entrar</button>
+  </div>
+
+  <!-- Modal / verificador de edad -->
+  <div id="modal-edad" class="modal-overlay" hidden>
+    <div class="modal-caja">
+      <h2>Verificación de edad</h2>
+      <p>Este sitio contiene material para mayores de 18 años. ¿Confirmas que tienes 18 años o más?</p>
+      <div class="modal-botones">
+        <button id="btn-si" class="modal-btn si">Sí, soy mayor de 18</button>
+        <button id="btn-no" class="modal-btn no">No, salir</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const btnEntrar = document.getElementById('btn-entrar');
+    const modal = document.getElementById('modal-edad');
+    const btnSi = document.getElementById('btn-si');
+    const btnNo = document.getElementById('btn-no');
+
+    // Si ya confirmó antes en esta sesión, entra directo sin preguntar de nuevo
+    if (sessionStorage.getItem('edadVerificada') === 'true') {
+      // No hace nada especial aquí, el usuario igual tiene que dar clic en "Entrar"
+      // pero podrías redirigir automático si prefieres. Lo dejamos manual por ahora.
+    }
+
+    btnEntrar.addEventListener('click', () => {
+      if (sessionStorage.getItem('edadVerificada') === 'true') {
+        window.location.href = 'home.html';
+      } else {
+        modal.hidden = false;
+      }
+    });
+
+    btnSi.addEventListener('click', () => {
+      sessionStorage.setItem('edadVerificada', 'true');
+      window.location.href = 'home.html';
+    });
+
+    btnNo.addEventListener('click', () => {
+      window.location.href = 'https://www.google.com';
+    });
+  </script>
+
+</body>
+</html>
