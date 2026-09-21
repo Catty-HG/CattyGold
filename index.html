@@ -15,7 +15,7 @@
   <div class="fondo-landing"></div>
   <div class="overlay-landing"></div>
 
-  <div class="landing-contenedor">
+  <div class="landing-contenedor vista-pagina">
 
     <h1 class="landing-titulo">Catty Gold</h1>
 
@@ -40,14 +40,14 @@
 
   </div>
 
-  <!-- Modal / verificador de edad -->
+  <!-- Modal / age verification -->
   <div id="modal-edad" class="modal-overlay" hidden>
     <div class="modal-caja">
-      <h2>Verificación de edad</h2>
-      <p>Este sitio contiene material para mayores de 18 años. ¿Confirmas que tienes 18 años o más?</p>
+      <h2>Age Verification</h2>
+      <p>This site contains material intended for adults (18+). Please confirm that you are 18 years of age or older.</p>
       <div class="modal-botones">
-        <button id="btn-si" class="modal-btn si">Sí, soy mayor de 18</button>
-        <button id="btn-no" class="modal-btn no">No, salir</button>
+        <button id="btn-si" class="modal-btn si">Yes, I am 18 or older</button>
+        <button id="btn-no" class="modal-btn no">No, take me back</button>
       </div>
     </div>
   </div>
@@ -58,9 +58,17 @@
     const btnSi = document.getElementById('btn-si');
     const btnNo = document.getElementById('btn-no');
 
+    function irA(url) {
+      const vista = document.querySelector('.vista-pagina');
+      if (vista) vista.classList.add('pagina-saliendo');
+      setTimeout(() => {
+        window.location.href = url;
+      }, 550);
+    }
+
     btnEntrar.addEventListener('click', () => {
       if (sessionStorage.getItem('edadVerificada') === 'true') {
-        window.location.href = 'index-second.html';
+        irA('index-second.html');
       } else {
         modal.hidden = false;
       }
@@ -68,11 +76,18 @@
 
     btnSi.addEventListener('click', () => {
       sessionStorage.setItem('edadVerificada', 'true');
-      window.location.href = 'index-second.html';
+      irA('index-second.html');
     });
 
     btnNo.addEventListener('click', () => {
-      window.location.href = 'index.html';
+      irA('index.html');
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const vista = document.querySelector('.vista-pagina');
+      if (vista) {
+        requestAnimationFrame(() => vista.classList.add('pagina-cargada'));
+      }
     });
   </script>
 
