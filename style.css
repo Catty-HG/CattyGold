@@ -65,7 +65,7 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Iconos de redes con la misma animación glitch que en home.html */
+/* Iconos de redes con la misma animación glitch que en index-second.html */
 .landing-redes {
   display: flex;
   gap: 20px;
@@ -88,6 +88,7 @@ body {
 
 .landing-redes a:nth-child(2) img { animation-delay: 0.15s; }
 .landing-redes a:nth-child(3) img { animation-delay: 0.3s; }
+.landing-redes a:nth-child(4) img { animation-delay: 0.45s; }
 
 @keyframes glitch-icono-landing {
   0%, 85%, 100% {
