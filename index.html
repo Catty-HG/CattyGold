@@ -7,19 +7,34 @@
   <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style-landing.css">
 </head>
 <body>
 
   <div class="fondo-landing"></div>
+  <div class="overlay-landing"></div>
 
   <div class="landing-contenedor">
-    <img src="img/profile.png" alt="Catty Gold" class="landing-foto">
-    <h1>Catty Gold</h1>
-    <p class="landing-texto">Contenido para adultos (+18). Al continuar confirmas que cumples la edad legal en tu país.</p>
 
-    <button id="btn-entrar" class="landing-boton">Entrar</button>
+    <h1 class="landing-titulo">Catty Gold</h1>
+
+    <p class="landing-texto">Step into my private world, where curiosity meets exclusivity.</p>
+
+    <div class="landing-redes">
+      <a href="https://x.com/Kitty_Cat_l0" target="_blank">
+        <img src="img/x.png" alt="X (Twitter)">
+      </a>
+      <a href="https://www.instagram.com/catty_gold._?stkn=MTkxZTkweG84ZDV4bg==" target="_blank">
+        <img src="img/instagram.png" alt="Instagram">
+      </a>
+      <a href="https://www.snapchat.com/add/catty_gold?share_id=ytNeliYaeS0&locale=en-GB" target="_blank">
+        <img src="img/snapchat.png" alt="Snapchat">
+      </a>
+    </div>
+
+    <button id="btn-entrar" class="landing-boton">Enter Private Space</button>
+
   </div>
 
   <!-- Modal / verificador de edad -->
@@ -40,12 +55,6 @@
     const btnSi = document.getElementById('btn-si');
     const btnNo = document.getElementById('btn-no');
 
-    // Si ya confirmó antes en esta sesión, entra directo sin preguntar de nuevo
-    if (sessionStorage.getItem('edadVerificada') === 'true') {
-      // No hace nada especial aquí, el usuario igual tiene que dar clic en "Entrar"
-      // pero podrías redirigir automático si prefieres. Lo dejamos manual por ahora.
-    }
-
     btnEntrar.addEventListener('click', () => {
       if (sessionStorage.getItem('edadVerificada') === 'true') {
         window.location.href = 'home.html';
@@ -59,9 +68,13 @@
       window.location.href = 'home.html';
     });
 
-btnNo.addEventListener('click', () => {
-  window.history.back();
-});
+    btnNo.addEventListener('click', () => {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'about:blank';
+      }
+    });
   </script>
 
 </body>
