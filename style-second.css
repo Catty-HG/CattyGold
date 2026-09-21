@@ -44,6 +44,41 @@ body {
   align-items: center;
 }
 
+/* Solo en celular: mostrar más la parte izquierda de la foto de fondo */
+@media (max-width: 767px) {
+  .contenedor {
+    background-position: 40% top;
+  }
+}
+
+/* Envoltorio del contenido real (perfil + enlaces), separado del marco de neón
+   para que la animación de transición no rompa su position:fixed en móvil */
+.vista-pagina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+}
+
+.vista-pagina.pagina-cargada {
+  animation: entrada-pagina 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vista-pagina.pagina-saliendo {
+  animation: salida-pagina 0.55s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes entrada-pagina {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes salida-pagina {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-55px); }
+}
+
 .perfil {
   position: relative;
   text-align: center;
