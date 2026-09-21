@@ -14,7 +14,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Fondo nítido, sin blur, tal como en la referencia */
 .fondo-landing {
   position: fixed;
   inset: 0;
@@ -22,7 +21,6 @@ body {
   background: url('img/home.png') center / cover no-repeat;
 }
 
-/* Oscurecido para que el texto blanco resalte, igual que en la imagen de referencia */
 .overlay-landing {
   position: fixed;
   inset: 0;
@@ -46,7 +44,6 @@ body {
   color: white;
 }
 
-/* Título estilo serif elegante, mayúsculas con espaciado, como "GINA GOODWIFE!" */
 .landing-titulo {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
@@ -65,7 +62,6 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Iconos de redes con la misma animación glitch que en index-second.html */
 .landing-redes {
   display: flex;
   gap: 20px;
@@ -124,7 +120,6 @@ body {
   }
 }
 
-/* Único botón: Enter Private Space */
 .landing-boton {
   margin-top: 34px;
   background: rgba(255, 255, 255, 0.12);
@@ -148,6 +143,30 @@ body {
     background: rgba(255, 255, 255, 0.22);
     transform: translateY(-2px);
   }
+}
+
+/* --- TRANSICIÓN ELEGANTE ENTRE PÁGINAS --- */
+
+.vista-pagina {
+  opacity: 0;
+}
+
+.vista-pagina.pagina-cargada {
+  animation: entrada-pagina 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vista-pagina.pagina-saliendo {
+  animation: salida-pagina 0.55s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes entrada-pagina {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes salida-pagina {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-55px); }
 }
 
 /* --- MODAL DE VERIFICACIÓN DE EDAD --- */
