@@ -44,13 +44,6 @@ body {
   align-items: center;
 }
 
-/* Solo en celular: mostrar más la parte izquierda de la foto de fondo */
-@media (max-width: 767px) {
-  .contenedor {
-    background-position: 40% top;
-  }
-}
-
 /* Envoltorio del contenido real (perfil + enlaces), separado del marco de neón
    para que la animación de transición no rompa su position:fixed en móvil */
 .vista-pagina {
