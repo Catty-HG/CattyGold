@@ -21,6 +21,13 @@ body {
   background: url('img/home.png') center / cover no-repeat;
 }
 
+/* Solo en celular: mostrar más la parte izquierda de la foto de fondo (home.png) */
+@media (max-width: 767px) {
+  .fondo-landing {
+    background-position: 25% center;
+  }
+}
+
 .overlay-landing {
   position: fixed;
   inset: 0;
