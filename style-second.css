@@ -317,6 +317,13 @@ body {
 /* --- TARJETA DESTACADA (Fansly) + marco de neón alrededor --- */
 .fansly-marco {
   position: relative;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .fansly-marco:hover {
+    transform: scale(1.035) translateY(-3px);
+  }
 }
 
 .fansly-marco .tarjeta.destacada {
@@ -324,6 +331,9 @@ body {
   padding: 0;
   overflow: hidden;
   border-radius: 24px;
+  /* anula el scale/translate que hereda de la regla genérica .tarjeta:hover,
+     para que solo escale el contenedor .fansly-marco (marco + tarjeta juntos) */
+  transform: none !important;
 }
 
 .fansly-marco .tarjeta.destacada img {
