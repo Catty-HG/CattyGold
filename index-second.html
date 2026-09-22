@@ -270,16 +270,21 @@
       landing.hidden = false;
       requestAnimationFrame(() => landingContenido.classList.add('pagina-cargada'));
 
-      document.getElementById('btn-entrar').addEventListener('click', () => {
-        fondoOscuro.hidden = false;
-        requestAnimationFrame(() => fondoOscuro.classList.add('subiendo'));
+document.getElementById('btn-entrar').addEventListener('click', () => {
+  fondoOscuro.hidden = false;
+  void fondoOscuro.offsetHeight; // fuerza el repintado antes de animar
 
-        setTimeout(() => {
-          landing.hidden = true;
-          espacioPrivado.hidden = false;
-        }, 850);
-      });
+  fondoOscuro.addEventListener('animationend', () => {
+    landing.hidden = true;
+    espacioPrivado.hidden = false;
+  }, { once: true });
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      fondoOscuro.classList.add('subiendo');
     });
+  });
+});
   </script>
 
 </body>
