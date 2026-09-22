@@ -513,3 +513,222 @@ body {
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
   }
 }
+
+.landing-titulo,
+.landing-texto,
+.landing-redes,
+.landing-boton {
+  font-family: 'Poppins', sans-serif;
+}
+
+.fondo-landing {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background: url('img/home.png') center / cover no-repeat;
+}
+
+.overlay-landing {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.15) 40%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.landing-contenedor {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+}
+
+.landing-titulo {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: clamp(38px, 7vw, 64px);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  line-height: 1.15;
+  max-width: 700px;
+}
+
+.landing-texto {
+  margin-top: 18px;
+  font-size: clamp(13px, 2vw, 16px);
+  color: #d8d3cc;
+  max-width: 420px;
+  letter-spacing: 0.3px;
+}
+
+.landing-redes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.landing-redes a {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease,
+    filter 0.45s ease;
+}
+
+.landing-redes img {
+  width: 26px;
+  height: 26px;
+  animation: glitch-icono 5s infinite;
+}
+
+.landing-redes a:nth-child(2) img { animation-delay: 0.15s; }
+.landing-redes a:nth-child(3) img { animation-delay: 0.3s; }
+.landing-redes a:nth-child(4) img { animation-delay: 0.45s; }
+
+@media (hover: hover) {
+  .landing-redes:hover a:not(:hover) {
+    opacity: 0.55;
+  }
+
+  .landing-redes a:hover {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
+  }
+}
+
+.landing-boton {
+  margin-top: 34px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 16px 46px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+@media (hover: hover) {
+  .landing-boton:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+  }
+}
+
+.vista-pagina {
+  opacity: 0;
+}
+
+.vista-pagina.pagina-cargada {
+  animation: entrada-pagina 0.75s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.vista-pagina.pagina-saliendo {
+  animation: salida-pagina 0.55s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+}
+
+@keyframes entrada-pagina {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes salida-pagina {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-55px); }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.modal-caja {
+  background: #1e1e1e;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 360px;
+  text-align: center;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.modal-caja h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.modal-caja p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 24px;
+}
+
+.modal-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-btn {
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-btn.si {
+  background: #ffffff;
+  color: #1e1e1e;
+}
+
+.modal-btn.si:hover {
+  background: #e0e0e0;
+}
+
+.modal-btn.no {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.modal-btn.no:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  #landing,
+  #modal-edad {
+    display: none !important;
+  }
+
+  .fondo-landing {
+    background-position: 23% center;
+  }
+}
