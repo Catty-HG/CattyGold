@@ -44,8 +44,7 @@ body {
   align-items: center;
 }
 
-/* Envoltorio del contenido real (perfil + enlaces), separado del marco de neón
-   para que la animación de transición no rompa su position:fixed en móvil */
+/* Envoltorio del contenido real, para la transición de entrada/salida */
 .vista-pagina {
   display: flex;
   flex-direction: column;
@@ -241,45 +240,163 @@ body {
   }
 }
 
+/* --- TARJETA ONLYFANS: estilo oscuro + borde dorado + doble gloss --- */
 .tarjeta.onlyfans {
-  background: linear-gradient(90deg, #c97b8c, #d9b26b);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #201d18, #2b2620);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1.5px solid #d9b25c;
+  box-shadow:
+    0 0 10px rgba(217, 178, 92, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+}
+
+.tarjeta.onlyfans::before,
+.tarjeta.onlyfans::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+/* Gloss pasivo: siempre activo, se repite en bucle */
+.tarjeta.onlyfans::before {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 100%
+  );
+  animation: shine-sweep 3.4s ease-in-out infinite;
+}
+
+/* Gloss de hover: más intenso, solo al pasar el mouse */
+.tarjeta.onlyfans::after {
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+}
+
+@keyframes shine-sweep {
+  0%   { left: -60%; }
+  55%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+@keyframes shine-sweep-hover {
+  0%   { left: -60%; opacity: 1; }
+  100% { left: 130%; opacity: 1; }
 }
 
 @media (hover: hover) {
   .tarjeta.onlyfans:hover {
     transform: scale(1.035) translateY(-3px);
-    background: linear-gradient(90deg, #d98da0, #e6c07c);
+    border-color: #f0cf6b;
     box-shadow:
-      0 0 20px rgba(217, 178, 107, 0.55),
-      0 6px 16px rgba(0, 0, 0, 0.2);
+      0 0 22px rgba(217, 178, 92, 0.65),
+      0 6px 16px rgba(0, 0, 0, 0.25);
+  }
+
+  .tarjeta.onlyfans:hover::after {
+    animation: shine-sweep-hover 0.85s ease-in-out;
   }
 }
 
-.tarjeta.destacada {
+/* --- TARJETA DESTACADA (Fansly) + marco de neón alrededor --- */
+.fansly-marco {
+  position: relative;
+}
+
+.fansly-marco .tarjeta.destacada {
+  width: 100%;
   padding: 0;
   overflow: hidden;
   border-radius: 24px;
 }
 
-.tarjeta.destacada img {
+.fansly-marco .tarjeta.destacada img {
   width: 100%;
   display: block;
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @media (hover: hover) {
-  .tarjeta.destacada:hover {
+  .fansly-marco .tarjeta.destacada:hover {
     box-shadow:
       0 0 20px rgba(255, 255, 255, 0.3),
       0 6px 16px rgba(0, 0, 0, 0.2);
   }
 
-  .tarjeta.destacada:hover img {
+  .fansly-marco .tarjeta.destacada:hover img {
     transform: scale(1.06);
   }
+}
+
+.marco-neon-card {
+  --neon-a: var(--magenta);
+  --neon-b: var(--azul);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 5;
+  animation: aparecer-marco 2s ease-out backwards;
+}
+
+.marco-neon-card-b {
+  --neon-a: var(--azul);
+  --neon-b: var(--magenta);
+  transform: rotate(180deg);
+}
+
+.marco-neon-card rect {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation:
+    recorrer 2.67s linear infinite,
+    color-neon 2.67s ease-in-out infinite;
+}
+
+.marco-neon-card .tc1 { stroke-width: 7;    stroke-dasharray: 2 98;  --ini: 2;  --fin: -98; }
+.marco-neon-card .tc2 { stroke-width: 5;    stroke-dasharray: 8 92;  --ini: 8;  --fin: -92; opacity: .55;  animation-delay: 0.033s, 0.033s; }
+.marco-neon-card .tc3 { stroke-width: 3.5;  stroke-dasharray: 14 86; --ini: 14; --fin: -86; opacity: .35;  animation-delay: 0.067s, 0.067s; }
+.marco-neon-card .tc4 { stroke-width: 2.2;  stroke-dasharray: 20 80; --ini: 20; --fin: -80; opacity: .2;   animation-delay: 0.1s, 0.1s; }
+.marco-neon-card .tc5 { stroke-width: 1.5;  stroke-dasharray: 26 74; --ini: 26; --fin: -74; opacity: .1;   animation-delay: 0.133s, 0.133s; }
+.marco-neon-card .tc6 { stroke-width: 1.1;  stroke-dasharray: 32 68; --ini: 32; --fin: -68; opacity: .08;  animation-delay: 0.167s, 0.167s; }
+.marco-neon-card .tc7 { stroke-width: 0.8;  stroke-dasharray: 38 62; --ini: 38; --fin: -62; opacity: .064; animation-delay: 0.2s, 0.2s; }
+.marco-neon-card .tc8 { stroke-width: 0.6;  stroke-dasharray: 44 56; --ini: 44; --fin: -56; opacity: .051; animation-delay: 0.233s, 0.233s; }
+.marco-neon-card .tc9 { stroke-width: 0.4;  stroke-dasharray: 50 50; --ini: 50; --fin: -50; opacity: .041; animation-delay: 0.267s, 0.267s; }
+
+@keyframes recorrer {
+  from { stroke-dashoffset: var(--ini); }
+  to   { stroke-dashoffset: var(--fin); }
+}
+
+@keyframes color-neon {
+  0%, 100% { stroke: var(--neon-a); }
+  50%      { stroke: var(--neon-b); }
+}
+
+@keyframes aparecer-marco {
+  from { opacity: 0; }
 }
 
 .fila-imagenes,
@@ -332,59 +449,6 @@ body {
   margin-bottom: -4px;
 }
 
-.marco-neon {
-  --neon-a: var(--magenta);
-  --neon-b: var(--azul);
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: calc(100% - 4px);
-  height: calc(100% - 4px);
-  overflow: visible;
-  pointer-events: none;
-  z-index: 10;
-  animation: aparecer-marco 2s ease-out backwards;
-}
-
-.marco-neon-b {
-  --neon-a: var(--azul);
-  --neon-b: var(--magenta);
-  transform: rotate(180deg);
-}
-
-.marco-neon rect {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  animation:
-    recorrer 2.67s linear infinite,
-    color-neon 2.67s ease-in-out infinite;
-}
-
-.marco-neon .t1 { stroke-width: 10;   stroke-dasharray: 2 98;  --ini: 2;  --fin: -98; }
-.marco-neon .t2 { stroke-width: 7;    stroke-dasharray: 8 92;  --ini: 8;  --fin: -92; opacity: .55;  animation-delay: 0.033s, 0.033s; }
-.marco-neon .t3 { stroke-width: 5;    stroke-dasharray: 14 86; --ini: 14; --fin: -86; opacity: .35;  animation-delay: 0.067s, 0.067s; }
-.marco-neon .t4 { stroke-width: 3;    stroke-dasharray: 20 80; --ini: 20; --fin: -80; opacity: .2;   animation-delay: 0.1s, 0.1s; }
-.marco-neon .t5 { stroke-width: 2;    stroke-dasharray: 26 74; --ini: 26; --fin: -74; opacity: .1;   animation-delay: 0.133s, 0.133s; }
-.marco-neon .t6 { stroke-width: 1.5;  stroke-dasharray: 32 68; --ini: 32; --fin: -68; opacity: .08;  animation-delay: 0.167s, 0.167s; }
-.marco-neon .t7 { stroke-width: 1;    stroke-dasharray: 38 62; --ini: 38; --fin: -62; opacity: .064; animation-delay: 0.2s, 0.2s; }
-.marco-neon .t8 { stroke-width: 0.75; stroke-dasharray: 44 56; --ini: 44; --fin: -56; opacity: .051; animation-delay: 0.233s, 0.233s; }
-.marco-neon .t9 { stroke-width: 0.5;  stroke-dasharray: 50 50; --ini: 50; --fin: -50; opacity: .041; animation-delay: 0.267s, 0.267s; }
-
-@keyframes recorrer {
-  from { stroke-dashoffset: var(--ini); }
-  to   { stroke-dashoffset: var(--fin); }
-}
-
-@keyframes color-neon {
-  0%, 100% { stroke: var(--neon-a); }
-  50%      { stroke: var(--neon-b); }
-}
-
-@keyframes aparecer-marco {
-  from { opacity: 0; }
-}
-
 .foto-contenedor,
 .perfil h1,
 .linea-nombre,
@@ -419,14 +483,6 @@ body {
     max-width: 480px;
     margin: 0 auto;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
-  }
-}
-
-@media (max-width: 767px) {
-  .marco-neon {
-    position: fixed;
-    width: calc(100vw - 4px);
-    height: calc(100dvh - 4px);
   }
 }
 
