@@ -44,7 +44,6 @@ body {
   align-items: center;
 }
 
-/* Envoltorio del contenido real, para la transición de entrada/salida */
 .vista-pagina {
   display: flex;
   flex-direction: column;
@@ -347,11 +346,6 @@ body {
 }
 
 @media (hover: hover) {
-  .fansly-marco .tarjeta.destacada:hover img {
-    transform: scale(1.06);
-  }
-}
-
   .fansly-marco .tarjeta.destacada:hover img {
     transform: scale(1.06);
   }
