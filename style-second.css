@@ -311,6 +311,18 @@ body {
   }
 }
 
+/* Separador "Or" entre OnlyFans y Fansly */
+.separador-or {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  margin: -4px 0;
+}
+
 /* --- TARJETA DESTACADA (Fansly) + marco de neón alrededor --- */
 .fansly-marco {
   position: relative;
@@ -458,6 +470,7 @@ body {
 .bio,
 .redes,
 .tarjeta,
+.separador-or,
 .separador,
 .titulo-seccion {
   animation: aparecer var(--entrada-duracion) cubic-bezier(0.16, 1, 0.3, 1) backwards;
@@ -470,6 +483,7 @@ body {
 .bio                      { --i: 3; }
 .redes                    { --i: 4; }
 .tarjeta.onlyfans         { --i: 5; }
+.separador-or             { --i: 5.5; }
 .tarjeta.destacada        { --i: 6; }
 .fila-imagenes .tarjeta   { --i: 7; }
 .separador                { --i: 8; }
