@@ -619,24 +619,54 @@ body {
   }
 }
 
+/* ===== Fondo del "espacio privado" (gris) ===== */
 #fondo-oscuro {
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: #1c1c1c;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.06), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.03), transparent 60%),
+    linear-gradient(165deg, #262626 0%, #1c1c1c 45%, #141414 100%);
   opacity: 0;
   transform: translateY(100%);
   pointer-events: none;
 }
 
-#fondo-oscuro.subiendo {
-  animation: subir-fondo 1s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+/* leve textura de grano para que el gris no se vea plano */
+#fondo-oscuro::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-@keyframes subir-fondo {
-  0%   { transform: translateY(100%); opacity: 0; }
-  50%  { opacity: 1; }
-  100% { transform: translateY(0); opacity: 1; }
+/* sombra interior sutil para dar profundidad en los bordes */
+#fondo-oscuro::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 160px rgba(0, 0, 0, 0.45);
+}
+
+#fondo-oscuro.subiendo {
+  animation:
+    subir-fondo-mov 1.1s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+    subir-fondo-fade 1.15s ease-out forwards;
+}
+
+@keyframes subir-fondo-mov {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes subir-fondo-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 #espacio-privado {
@@ -674,6 +704,81 @@ body {
     max-width: 480px;
     margin: 0 auto;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+  }
+
+  /* ===== Distribución y tamaño de tarjetas para pantallas de ordenador ===== */
+  #espacio-privado {
+    padding: 70px 40px;
+  }
+
+  .espacio-titulo {
+    font-size: 30px;
+    letter-spacing: 1.5px;
+    margin-bottom: 38px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+
+  .enlaces-escritorio {
+    max-width: 620px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .enlaces-escritorio .tarjeta {
+    padding: 20px 28px;
+    font-size: 17px;
+    letter-spacing: 0.2px;
+  }
+
+  .enlaces-escritorio .separador-or {
+    font-size: 15px;
+    margin: -2px 0;
+  }
+
+  .enlaces-escritorio .fansly-marco {
+    border-radius: 26px;
+  }
+
+  .enlaces-escritorio .fila-imagenes,
+  .enlaces-escritorio .fila-tarjetas {
+    gap: 20px;
+  }
+
+  .enlaces-escritorio .fila-imagenes .tarjeta {
+    padding: 24px 16px;
+  }
+
+  .enlaces-escritorio .icono-centro {
+    width: 34px;
+    height: 34px;
+  }
+
+  .enlaces-escritorio .fila-tarjetas .tarjeta {
+    font-size: 17px;
+    gap: 10px;
+    padding: 20px 18px;
+  }
+
+  .enlaces-escritorio .icono-tarjeta {
+    width: 28px;
+    height: 28px;
+  }
+
+  .enlaces-escritorio .titulo-seccion {
+    font-size: 27px;
+    margin-top: 16px;
+    margin-bottom: -2px;
+  }
+
+  .enlaces-escritorio .separador {
+    margin-top: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .enlaces-escritorio {
+    max-width: 680px;
   }
 }
 
