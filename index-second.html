@@ -16,6 +16,39 @@
 
   <div class="contenedor">
 
+    <!-- Versión ESCRITORIO: solo visible en PC/tablet -->
+    <div class="vista-escritorio">
+      <div class="perfil">
+        <h1>
+          <span class="estrella-nombre">★</span>
+          Catty Gold
+          <span class="estrella-nombre">★</span>
+        </h1>
+
+        <div class="linea-nombre" aria-hidden="true"></div>
+
+        <p class="bio">Hi everyone, I'm Catty, just a slightly goofy femboy looking to have some fun. Here are my links below, meow :3</p>
+
+        <div class="redes">
+          <a href="https://x.com/Kitty_Cat_l0" target="_blank">
+            <img src="img/x.png" alt="X (Twitter)">
+          </a>
+          <a href="https://www.instagram.com/catty_gold._?stkn=MTkxZTkweG84ZDV4bg==" target="_blank">
+            <img src="img/instagram.png" alt="Instagram">
+          </a>
+          <a href="https://www.reddit.com/u/Catty_Gold/s/R7cvDO1Dnd" target="_blank">
+            <img src="img/reddit.png" alt="Reddit">
+          </a>
+          <a href="https://www.snapchat.com/add/catty_gold?share_id=ytNeliYaeS0&locale=en-GB" target="_blank">
+            <img src="img/snapchat.png" alt="Snapchat">
+          </a>
+        </div>
+      </div>
+
+      <button id="btn-ver-enlaces" class="escritorio-boton">Enter Private Space</button>
+    </div>
+
+    <!-- Versión MÓVIL: la página de enlaces actual, sin cambios -->
     <div class="vista-pagina">
 
       <div class="perfil">
@@ -55,7 +88,7 @@
 
       <div class="enlaces">
         <a href="https://onlyfans.com/catty_gold" class="tarjeta onlyfans" target="_blank">
-          <span>🤍 Check out my blue page ;) 🤍</span>
+          <span>🤍 Onlyfans | Catty_Gold 🤍</span>
         </a>
 
         <p class="separador-or">Or</p>
@@ -139,9 +172,17 @@
 
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      const vista = document.querySelector('.vista-pagina');
-      if (vista) {
-        requestAnimationFrame(() => vista.classList.add('pagina-cargada'));
+      document.querySelectorAll('.vista-pagina, .vista-escritorio').forEach((el) => {
+        requestAnimationFrame(() => el.classList.add('pagina-cargada'));
+      });
+
+      const btnVer = document.getElementById('btn-ver-enlaces');
+      const contenedor = document.querySelector('.contenedor');
+
+      if (btnVer && contenedor) {
+        btnVer.addEventListener('click', () => {
+          contenedor.classList.add('mostrar-enlaces');
+        });
       }
     });
   </script>
