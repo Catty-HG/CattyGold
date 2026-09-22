@@ -239,21 +239,19 @@ body {
   }
 }
 
-/* --- TARJETA ONLYFANS: estilo oscuro + borde morado + doble gloss --- */
+/* --- TARJETA ONLYFANS: degradado dorado original + doble gloss --- */
 .tarjeta.onlyfans {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #1b1820, #25202b);
+  background: linear-gradient(90deg, #c97b8c, #d9b26b);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
-  border: 1.5px solid #9d5cd9;
-  box-shadow:
-    0 0 10px rgba(157, 92, 217, 0.35),
-    0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition:
     transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
     box-shadow 0.4s ease,
-    border-color 0.4s ease;
+    filter 0.4s ease;
 }
 
 .tarjeta.onlyfans::before,
@@ -302,10 +300,10 @@ body {
 @media (hover: hover) {
   .tarjeta.onlyfans:hover {
     transform: scale(1.035) translateY(-3px);
-    border-color: #bc85e8;
+    filter: brightness(1.1);
     box-shadow:
-      0 0 22px rgba(157, 92, 217, 0.65),
-      0 6px 16px rgba(0, 0, 0, 0.25);
+      0 0 20px rgba(217, 178, 107, 0.55),
+      0 6px 16px rgba(0, 0, 0, 0.2);
   }
 
   .tarjeta.onlyfans:hover::after {
