@@ -319,6 +319,18 @@
       const fondoBlur = document.getElementById('fondo-blur-enlaces');
       const vistaEnlaces = document.getElementById('vista-enlaces');
 
+      // Tiempo total que tardan en terminar las animaciones de entrada
+      // (--entrada-inicio + el mayor --i usado * --entrada-paso + --entrada-duracion),
+      // con un pequeño margen extra. Mientras no pase este tiempo, la
+      // animación de cometas al pasar el mouse por las tarjetas destacadas
+      // permanece desactivada.
+      const TIEMPO_ENTRADA_MS = 2900;
+
+      function activarNeonTrasCarga(el) {
+        el.classList.remove('listo');
+        window.setTimeout(() => el.classList.add('listo'), TIEMPO_ENTRADA_MS);
+      }
+
       if (!esEscritorio) {
         landing.hidden = true;
         fondoBlur.hidden = false;
@@ -337,6 +349,7 @@
         fondoOscuro.addEventListener('animationend', () => {
           landing.hidden = true;
           espacioPrivado.hidden = false;
+          activarNeonTrasCarga(espacioPrivado);
         }, { once: true });
 
         requestAnimationFrame(() => {
