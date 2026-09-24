@@ -12,29 +12,14 @@
 </head>
 <body>
 
+  <!-- ===================== LAYOUT A: LANDING ===================== -->
   <div id="landing" hidden>
     <div class="fondo-landing"></div>
     <div class="overlay-landing"></div>
 
     <div class="landing-contenedor vista-pagina" id="landing-contenido">
       <h1 class="landing-titulo">Catty Gold</h1>
-      <div class="separador-titulo" aria-hidden="true"></div>
       <p class="landing-texto">Hi there! I'm Catty, just a slightly goofy femboy looking to have some fun :3 </p>
-
-      <div class="landing-redes">
-        <a href="https://x.com/Kitty_Cat_l0" target="_blank">
-          <img src="img/x.png" alt="X (Twitter)">
-        </a>
-        <a href="https://www.instagram.com/catty_gold._?stkn=MTkxZTkweG84ZDV4bg==" target="_blank">
-          <img src="img/instagram.png" alt="Instagram">
-        </a>
-        <a href="https://www.reddit.com/u/Catty_Gold/s/R7cvDO1Dnd" target="_blank">
-          <img src="img/reddit.png" alt="Reddit">
-        </a>
-        <a href="https://www.snapchat.com/add/catty_gold?share_id=ytNeliYaeS0&locale=en-GB" target="_blank">
-          <img src="img/snapchat.png" alt="Snapchat">
-        </a>
-      </div>
 
       <button class="landing-boton" id="btn-entrar">ENTER PRIVATE SPACE</button>
     </div>
@@ -42,6 +27,7 @@
 
   <div id="fondo-oscuro" hidden></div>
 
+  <!-- ===================== LAYOUT B: ESPACIO PRIVADO ===================== -->
   <div id="espacio-privado" hidden>
     <h2 class="espacio-titulo">
       <span class="estrella-nombre">★</span>
@@ -141,7 +127,15 @@
     </div>
 
     <div class="escritorio-columnas escritorio-ancho">
-      <div class="escritorio-columna">
+
+      <!--
+        AVISO: esta columna ("Watch me live on:" con Chaturbate y
+        Stripchat) está desactivada a pedido del usuario. Se deja
+        el HTML tal cual por si se quiere reactivar más adelante:
+        para volver a mostrarla, basta con quitar la clase
+        "layout-b-desactivado" de abajo (ver esa clase en el CSS).
+      -->
+      <div class="escritorio-columna layout-b-desactivado">
         <h2 class="titulo-seccion">Watch me live on:</h2>
         <div class="fila-tarjetas">
           <a href="https://chaturbate.com/catty_gold" class="tarjeta" target="_blank">
@@ -187,6 +181,7 @@
     </div>
   </div>
 
+  <!-- ===================== PÁGINA MÓVIL ===================== -->
   <div class="fondo-blur" id="fondo-blur-enlaces" hidden></div>
 
   <div class="contenedor" id="pagina-enlaces" hidden>
