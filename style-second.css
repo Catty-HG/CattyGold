@@ -877,6 +877,10 @@ body {
 /* Brillo morado detrás de la tarjeta de Fansly al pasar el
    cursor (punto 7) */
 @media (hover: hover) {
+  #espacio-privado.listo .escritorio-destacada--of:hover {
+    box-shadow: 0 0 42px 10px rgba(255, 243, 214, 0.55);
+  }
+
   #espacio-privado.listo .escritorio-destacada--fansly:hover {
     box-shadow: 0 0 42px 10px rgba(157, 92, 217, 0.55);
   }
