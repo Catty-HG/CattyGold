@@ -22,6 +22,21 @@
       <p class="landing-texto">Hi there! I'm Catty, just a slightly goofy femboy looking to have some fun :3 </p>
 
       <button class="landing-boton" id="btn-entrar">ENTER PRIVATE SPACE</button>
+
+      <div class="landing-redes">
+        <a href="https://x.com/Kitty_Cat_l0" target="_blank">
+          <img src="img/x.png" alt="X (Twitter)">
+        </a>
+        <a href="https://www.instagram.com/catty_gold._?stkn=MTkxZTkweG84ZDV4bg==" target="_blank">
+          <img src="img/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://www.reddit.com/u/Catty_Gold/s/R7cvDO1Dnd" target="_blank">
+          <img src="img/reddit.png" alt="Reddit">
+        </a>
+        <a href="https://www.snapchat.com/add/catty_gold?share_id=ytNeliYaeS0&locale=en-GB" target="_blank">
+          <img src="img/snapchat.png" alt="Snapchat">
+        </a>
+      </div>
     </div>
   </div>
 
@@ -316,11 +331,6 @@
       const fondoBlur = document.getElementById('fondo-blur-enlaces');
       const vistaEnlaces = document.getElementById('vista-enlaces');
 
-      // Tiempo total que tardan en terminar las animaciones de entrada
-      // (--entrada-inicio + el mayor --i usado * --entrada-paso + --entrada-duracion),
-      // con un pequeño margen extra. Mientras no pase este tiempo, la
-      // animación de cometas al pasar el mouse por las tarjetas destacadas
-      // permanece desactivada.
       const TIEMPO_ENTRADA_MS = 2900;
 
       function activarNeonTrasCarga(el) {
