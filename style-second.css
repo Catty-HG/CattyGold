@@ -158,8 +158,8 @@ body {
 
 /* Separador elegante y minimalista bajo los títulos "Catty Gold"
    (versión con línea + rombo central). En el layout B (más abajo,
-   dentro de "ESPACIO PRIVADO") se sobrescribe para quitar el rombo
-   y acercarlo más al título. */
+   dentro de "ESPACIO PRIVADO") se sobrescribe para quitar el rombo,
+   acercarlo más al título y alargar la línea. */
 .separador-titulo {
   position: relative;
   width: 46px;
@@ -193,8 +193,7 @@ body {
 }
 
 /* =========================================================
-   REDES SOCIALES (solo el perfil móvil y el layout B las usan;
-   el layout A ya no tiene iconos de redes)
+   REDES SOCIALES (perfil móvil, landing y espacio privado)
    ========================================================= */
 .redes {
   display: flex;
@@ -249,6 +248,42 @@ body {
   }
 
   .redes a:hover {
+    transform: scale(1.25);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
+  }
+}
+
+/* Iconos de redes del Layout A, debajo del botón "ENTER PRIVATE SPACE" */
+.landing-redes {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.landing-redes a {
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.45s ease,
+    filter 0.45s ease;
+}
+
+.landing-redes img {
+  width: 16px;
+  height: 16px;
+  animation: glitch-icono 5s infinite;
+}
+
+.landing-redes a:nth-child(2) img { animation-delay: 0.15s; }
+.landing-redes a:nth-child(3) img { animation-delay: 0.3s; }
+.landing-redes a:nth-child(4) img { animation-delay: 0.45s; }
+
+@media (hover: hover) {
+  .landing-redes:hover a:not(:hover) {
+    opacity: 0.55;
+  }
+
+  .landing-redes a:hover {
     transform: scale(1.25);
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
   }
@@ -575,6 +610,7 @@ body {
 .separador-titulo,
 .bio,
 .redes,
+.landing-redes,
 .tarjeta,
 .separador-or,
 .separador,
@@ -589,6 +625,7 @@ body {
 .separador-titulo         { --i: 2; }
 .bio                      { --i: 3; }
 .redes                    { --i: 4; }
+.landing-redes            { --i: 3; }
 .espacio-titulo           { --i: 4; }
 .tarjeta.onlyfans         { --i: 5; }
 .separador-or             { --i: 5.5; }
@@ -642,7 +679,6 @@ body {
   color: white;
 }
 
-/* Título más grande que en la versión anterior (punto 1) */
 .landing-titulo {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
@@ -661,8 +697,6 @@ body {
   letter-spacing: 0.3px;
 }
 
-/* Botón "ENTER PRIVATE SPACE": gloss que solo aparece al pasar
-   el mouse por encima (punto 4) */
 .landing-boton {
   position: relative;
   overflow: hidden;
@@ -718,6 +752,7 @@ body {
   inset: 0;
   z-index: 40;
   background:
+    linear-gradient(to top, #101010 0%, #101010 33.333%, transparent 33.334%, transparent 100%),
     radial-gradient(circle at 50% -10%, rgba(255, 255, 255, 0.06), transparent 55%),
     radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.03), transparent 60%),
     linear-gradient(165deg, #262626 0%, #1c1c1c 45%, #141414 100%);
@@ -775,7 +810,6 @@ body {
   overflow-y: auto;
 }
 
-/* Título y estrellas un 50% más grandes (punto 10) */
 .espacio-titulo {
   display: flex;
   align-items: center;
@@ -792,11 +826,12 @@ body {
   font-size: 40.8px;
 }
 
-/* Separador del layout B: sin el rombo (línea limpia) y más
-   cerca del título (puntos 5 y 6) */
+/* Separador del layout B: sin rombo, más cerca del título y
+   más largo (90px, en vez de heredar los 46px genéricos) */
 #espacio-privado .separador-titulo {
   --i: 4.3;
   margin-top: 4px;
+  width: 90px;
 }
 
 #espacio-privado .separador-titulo::before {
@@ -814,8 +849,6 @@ body {
   gap: 48px;
 }
 
-/* Fila de OF + Fansly un 50% más grande que el resto del layout B
-   (punto 10): se amplía el ancho máximo de esta fila en concreto */
 .escritorio-destacadas.escritorio-ancho {
   max-width: 1380px;
 }
@@ -874,8 +907,6 @@ body {
   --neon-b: #fff3d6;
 }
 
-/* Brillo morado detrás de la tarjeta de Fansly al pasar el
-   cursor (punto 7) */
 @media (hover: hover) {
   #espacio-privado.listo .escritorio-destacada--of:hover {
     box-shadow: 0 0 42px 10px rgba(255, 243, 214, 0.55);
@@ -922,8 +953,6 @@ body {
   animation-play-state: paused;
 }
 
-/* Columna restante centrada en la página al desactivar la otra
-   (puntos 8 y 9) */
 .escritorio-columnas {
   display: flex;
   gap: 40px;
@@ -967,7 +996,6 @@ body {
   font-size: 13.6px;
 }
 
-/* Iconos un 50% más grandes (punto 10) */
 #espacio-privado .icono-centro {
   width: 25.5px;
   height: 25.5px;
