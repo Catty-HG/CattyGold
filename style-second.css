@@ -4,7 +4,7 @@
 :root {
   --magenta: #ff00ea;
   --azul: #00a2ff;
-  --morado-fansly: #9d5cd9; /* color base del morado usado en el marco de Fansly */
+  --morado-fansly: #9d5cd9;
   --entrada-inicio: 0.3s;
   --entrada-duracion: 1.3s;
   --entrada-paso: 0.12s;
@@ -82,12 +82,12 @@ body {
 }
 
 /* =========================================================
-   PERFIL (título principal — tamaño intacto)
+   PERFIL (título principal — móvil)
    ========================================================= */
 .perfil {
   position: relative;
   text-align: center;
-  margin-bottom: 26px; /* antes 30px, ajustado al reducirse el título y sus elementos */
+  margin-bottom: 26px;
 }
 
 .banner-wrap {
@@ -123,18 +123,18 @@ body {
 }
 
 .perfil h1 {
-  margin-top: 12px; /* antes 15px */
-  font-size: 25.6px; /* 32px, -20% */
+  margin-top: 12px;
+  font-size: 25.6px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 11px; /* antes 14px, proporcional al título */
+  gap: 11px;
 }
 
 .estrella-nombre {
-  font-size: 20.8px; /* 26px, -20% junto con el título */
+  font-size: 20.8px;
   color: #ffffff;
   line-height: 1;
   text-shadow:
@@ -157,8 +157,9 @@ body {
 }
 
 /* Separador elegante y minimalista bajo los títulos "Catty Gold"
-   (perfil, landing y espacio privado): una línea corta con un
-   pequeño rombo central, en vez de la barra ancha anterior. */
+   (versión con línea + rombo central). En el layout B (más abajo,
+   dentro de "ESPACIO PRIVADO") se sobrescribe para quitar el rombo
+   y acercarlo más al título. */
 .separador-titulo {
   position: relative;
   width: 46px;
@@ -185,52 +186,39 @@ body {
 }
 
 .bio {
-  margin-top: 12px; /* antes 15px */
+  margin-top: 12px;
   font-size: clamp(11px, 3.1vw, 13px);
   color: #ccc;
   text-wrap: balance;
 }
 
 /* =========================================================
-   REDES SOCIALES (perfil + landing unificadas)
+   REDES SOCIALES (solo el perfil móvil y el layout B las usan;
+   el layout A ya no tiene iconos de redes)
    ========================================================= */
 .redes {
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-top: 12px; /* antes 15px */
+  margin-top: 12px;
 }
 
-.landing-redes {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 30px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.redes a,
-.landing-redes a {
+.redes a {
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     opacity 0.45s ease,
     filter 0.45s ease;
 }
 
-.redes img,
-.landing-redes img {
+.redes img {
+  width: 15px;
+  height: 15px;
   animation: glitch-icono 5s infinite;
 }
 
-.redes img { width: 15px; height: 15px; }        /* antes 30px, -50% */
-.landing-redes img { width: 13px; height: 13px; } /* antes 26px, -50% */
-
-.redes a:nth-child(2) img,
-.landing-redes a:nth-child(2) img { animation-delay: 0.15s; }
-.redes a:nth-child(3) img,
-.landing-redes a:nth-child(3) img { animation-delay: 0.3s; }
-.redes a:nth-child(4) img,
-.landing-redes a:nth-child(4) img { animation-delay: 0.45s; }
+.redes a:nth-child(2) img { animation-delay: 0.15s; }
+.redes a:nth-child(3) img { animation-delay: 0.3s; }
+.redes a:nth-child(4) img { animation-delay: 0.45s; }
 
 @keyframes glitch-icono {
   0%, 85%, 100% {
@@ -256,13 +244,11 @@ body {
 }
 
 @media (hover: hover) {
-  .redes:hover a:not(:hover),
-  .landing-redes:hover a:not(:hover) {
+  .redes:hover a:not(:hover) {
     opacity: 0.55;
   }
 
-  .redes a:hover,
-  .landing-redes a:hover {
+  .redes a:hover {
     transform: scale(1.25);
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.55));
   }
@@ -270,16 +256,13 @@ body {
 
 /* =========================================================
    TARJETAS / ENLACES
-   Las tarjetas "grises" (genéricas) se redujeron un 35% en
-   su relleno (padding). Las dos tarjetas principales, OF y
-   Fansly, quedan restauradas a su tamaño original más abajo.
    ========================================================= */
 .enlaces {
   width: 100%;
   max-width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* antes 12px, ajustado a las tarjetas más compactas */
+  gap: 10px;
 }
 
 .tarjeta {
@@ -288,11 +271,11 @@ body {
   -webkit-backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.225);
   border-radius: 999px;
-  padding: 7.3px 9.1px; /* 10.4px 13px, -30% adicional */
+  padding: 7.3px 9.1px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 5.6px; /* antes 8px, -30% */
+  gap: 5.6px;
   text-decoration: none;
   color: white;
   font-weight: 500;
@@ -313,7 +296,6 @@ body {
   }
 }
 
-/* ---- Iconos dentro de las tarjetas: -50% ---- */
 .icono-centro,
 .icono-tarjeta {
   object-fit: contain;
@@ -321,53 +303,52 @@ body {
 }
 
 .icono-centro {
-  width: 14px;  /* antes 28px */
+  width: 14px;
   height: 14px;
 }
 
 .icono-tarjeta {
-  width: 12px;  /* antes 24px */
+  width: 12px;
   height: 12px;
 }
 
-/* ---- Fila de íconos y fila "WATCH ME / WANT TO..." ---- */
 .fila-imagenes,
 .fila-tarjetas {
   display: flex;
-  gap: 7px; /* antes 10px, -30% */
+  gap: 7px;
 }
 
 .fila-imagenes .tarjeta,
 .fila-tarjetas .tarjeta {
   flex: 1;
   min-width: 0;
-  padding: 6.4px 4.6px; /* 9.1px 6.5px, -30% adicional */
+  padding: 6.4px 4.6px;
 }
 
 .fila-tarjetas .tarjeta {
-  gap: 4.2px; /* antes 6px, -30% */
-  font-size: 12px; /* sin cambios en esta ronda */
+  gap: 4.2px;
+  font-size: 12px;
   white-space: nowrap;
 }
 
 .titulo-seccion {
   font-family: 'Oswald', sans-serif;
   font-weight: 600;
-  font-size: 21.6px; /* 24px, -10% */
+  font-size: 21.6px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   text-align: center;
-  margin-top: 8px; /* antes 10px */
+  margin-top: 8px;
   margin-bottom: -4px;
 }
 
 /* =========================================================
-   TARJETA ONLYFANS (tamaño original — no se reduce)
+   TARJETA ONLYFANS (móvil — texto con degradado)
    ========================================================= */
 .tarjeta.onlyfans {
   position: relative;
   overflow: hidden;
-  padding: 16px 20px; /* tamaño original restaurado, es una de las 2 tarjetas principales */
+  padding: 16px 20px;
   background: linear-gradient(90deg, #c97b8c, #d9b26b);
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -379,8 +360,6 @@ body {
     filter 0.4s ease;
 }
 
-/* Si la tarjeta OF usa los mismos íconos que el resto, se
-   restauran a su tamaño original para que no se vea afectada */
 .tarjeta.onlyfans .icono-centro { width: 28px; height: 28px; }
 .tarjeta.onlyfans .icono-tarjeta { width: 24px; height: 24px; }
 
@@ -442,7 +421,7 @@ body {
 }
 
 /* =========================================================
-   TARJETA FANSLY (tamaño original — no se reduce)
+   TARJETA FANSLY (móvil)
    ========================================================= */
 .separador-or {
   font-family: 'Oswald', sans-serif;
@@ -493,10 +472,6 @@ body {
   }
 }
 
-/* El barrido continuo (::before) es blanco, igual que en OF, para
-   que el brillo que recorre las tarjetas de izquierda a derecha
-   coincida en ambas. El destello morado (::after) solo aparece al
-   pasar el cursor, siguiendo el tono violeta de las cometas de Fansly. */
 .fansly-marco .tarjeta.destacada::before,
 .fansly-marco .tarjeta.destacada::after {
   content: "";
@@ -517,7 +492,7 @@ body {
     transparent 100%
   );
   animation: shine-sweep 3.4s ease-in-out infinite;
-  animation-delay: 1.1s; /* desfasado respecto a OF para que no barran a la vez */
+  animation-delay: 1.1s;
 }
 
 .fansly-marco .tarjeta.destacada::after {
@@ -629,7 +604,7 @@ body {
 }
 
 /* =========================================================
-   LANDING
+   LANDING (layout A)
    ========================================================= */
 .landing-titulo,
 .landing-texto,
@@ -667,29 +642,30 @@ body {
   color: white;
 }
 
+/* Título más grande que en la versión anterior (punto 1) */
 .landing-titulo {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 500;
-  font-size: clamp(30px, 5.6vw, 51px); /* clamp(38px, 7vw, 64px), -20% */
+  font-size: clamp(42px, 7.4vw, 68px);
   text-transform: uppercase;
   letter-spacing: 6px;
   line-height: 1.15;
   max-width: 700px;
 }
 
-.landing-titulo + .separador-titulo {
-  margin-top: 16px;
-}
-
 .landing-texto {
-  margin-top: 18px;
+  margin-top: 22px;
   font-size: clamp(13px, 2vw, 16px);
   color: #d8d3cc;
   max-width: 420px;
   letter-spacing: 0.3px;
 }
 
+/* Botón "ENTER PRIVATE SPACE": gloss que solo aparece al pasar
+   el mouse por encima (punto 4) */
 .landing-boton {
+  position: relative;
+  overflow: hidden;
   margin-top: 34px;
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(15px);
@@ -706,15 +682,36 @@ body {
   transition: 0.3s;
 }
 
+.landing-boton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
 @media (hover: hover) {
   .landing-boton:hover {
     background: rgba(255, 255, 255, 0.22);
     transform: translateY(-2px);
   }
+
+  .landing-boton:hover::before {
+    animation: shine-sweep-hover 0.85s ease-in-out;
+  }
 }
 
 /* =========================================================
-   ESPACIO PRIVADO (área ampliada de escritorio)
+   ESPACIO PRIVADO (layout B)
    ========================================================= */
 #fondo-oscuro {
   position: fixed;
@@ -771,30 +768,40 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 36px; /* antes 44px, ajustado a los elementos más compactos */
+  gap: 36px;
   text-align: center;
   padding: 70px 50px;
   color: white;
   overflow-y: auto;
 }
 
+/* Título y estrellas un 50% más grandes (punto 10) */
 .espacio-titulo {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px; /* antes 22px, proporcional al título */
+  gap: 27px;
   font-family: 'Poppins', sans-serif;
-  font-size: 33.6px; /* 42px, -20% */
+  font-size: 50.4px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .espacio-titulo .estrella-nombre {
-  font-size: 27.2px; /* 34px, -20% */
+  font-size: 40.8px;
 }
 
-#espacio-privado .separador-titulo { --i: 4.3; }
+/* Separador del layout B: sin el rombo (línea limpia) y más
+   cerca del título (puntos 5 y 6) */
+#espacio-privado .separador-titulo {
+  --i: 4.3;
+  margin-top: 4px;
+}
+
+#espacio-privado .separador-titulo::before {
+  display: none;
+}
 
 .escritorio-ancho {
   width: 100%;
@@ -804,14 +811,23 @@ body {
 .escritorio-destacadas {
   position: relative;
   display: flex;
-  gap: 32px;
+  gap: 48px;
+}
+
+/* Fila de OF + Fansly un 50% más grande que el resto del layout B
+   (punto 10): se amplía el ancho máximo de esta fila en concreto */
+.escritorio-destacadas.escritorio-ancho {
+  max-width: 1380px;
 }
 
 .escritorio-destacada {
   position: relative;
   flex: 1;
   min-width: 0;
-  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 24px;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.4s ease;
 }
 
 .escritorio-destacada .tarjeta.destacada {
@@ -835,10 +851,6 @@ body {
 }
 
 @media (hover: hover) {
-  /* La tarjeta y su marco de cometas crecen juntos: el escalado
-     se aplica al contenedor .escritorio-destacada (padre de ambos)
-     en vez de solo a la imagen, para que el marco siga el tamaño
-     de la tarjeta al pasar el cursor */
   #espacio-privado.listo .escritorio-destacada:hover {
     transform: scale(1.035) translateY(-3px);
   }
@@ -862,10 +874,14 @@ body {
   --neon-b: #fff3d6;
 }
 
-/* Gloss ambiental que recorre ambas tarjetas destacadas (OF y
-   Fansly) de izquierda a derecha: blanco en las dos, para que
-   coincidan. El tono morado queda reservado al destello de Fansly
-   al pasar el cursor (ver .fansly-marco .tarjeta.destacada::after). */
+/* Brillo morado detrás de la tarjeta de Fansly al pasar el
+   cursor (punto 7) */
+@media (hover: hover) {
+  #espacio-privado.listo .escritorio-destacada--fansly:hover {
+    box-shadow: 0 0 42px 10px rgba(157, 92, 217, 0.55);
+  }
+}
+
 .escritorio-gloss {
   --gloss-color: rgba(255, 255, 255, 0.35);
   position: absolute;
@@ -902,14 +918,17 @@ body {
   animation-play-state: paused;
 }
 
+/* Columna restante centrada en la página al desactivar la otra
+   (puntos 8 y 9) */
 .escritorio-columnas {
   display: flex;
   gap: 40px;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .escritorio-columna {
-  flex: 1;
+  flex: 0 1 380px;
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -917,36 +936,49 @@ body {
   gap: 20px;
 }
 
-#espacio-privado .titulo-seccion { --i: 7; font-size: 25.2px; } /* 28px, -10% */
+/* ============================================================
+   AVISO: esta clase oculta por completo un bloque y bloquea
+   toda interacción con él, sin quitarlo del HTML. Se usa en la
+   columna "Watch me live on:" (Chaturbate y Stripchat) del
+   layout B, desactivada a pedido del usuario. Para reactivarla,
+   quita esta clase del elemento correspondiente en el HTML.
+   ============================================================ */
+.layout-b-desactivado {
+  display: none !important;
+  pointer-events: none !important;
+}
+
+#espacio-privado .titulo-seccion { --i: 7; font-size: 25.2px; }
 
 #espacio-privado .fila-imagenes,
 #espacio-privado .fila-tarjetas {
   width: 100%;
-  gap: 9.8px; /* antes 14px, -30% */
+  gap: 9.8px;
 }
 
 #espacio-privado .fila-imagenes .tarjeta,
 #espacio-privado .fila-tarjetas .tarjeta {
   --i: 8;
-  padding: 8.2px 6.4px; /* 11.7px 9.1px, -30% adicional */
-  font-size: 13.6px; /* sin cambios en esta ronda */
+  padding: 8.2px 6.4px;
+  font-size: 13.6px;
 }
 
+/* Iconos un 50% más grandes (punto 10) */
 #espacio-privado .icono-centro {
-  width: 17px;  /* antes 34px, -50% */
-  height: 17px;
+  width: 25.5px;
+  height: 25.5px;
 }
 
 #espacio-privado .icono-tarjeta {
-  width: 14px;  /* antes 28px, -50% */
-  height: 14px;
+  width: 21px;
+  height: 21px;
 }
 
 #espacio-privado .redes { --i: 9; gap: 20px; margin-top: 4px; }
 
 #espacio-privado .redes img {
-  width: 17px;  /* antes 34px, -50% */
-  height: 17px;
+  width: 25.5px;
+  height: 25.5px;
 }
 
 /* =========================================================
